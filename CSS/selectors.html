@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectors</title>
+    <style>
+        div{/*element selector*/
+            background-color: yellow;
+        }
+        .red{/*class selector*/
+            background-color: aqua;
+        }
+        #green{/*ID selector*/
+            background-color: pink;
+        }
+        div > p{/*child selector*/
+            color: aquamarine;
+            background-color: black;
+        }
+        *{/*universal selector*/
+            margin: 0;
+            padding: 0;
+        }
+        /*pseudo selector*/
+        a:visited{
+            color: rgb(242, 11, 50);
+        }
+        a:active{
+            background-color: black;
+            color: white;
+        }
+        a:hover{
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Hello world
+        <p>
+            this is a para
+        </p>
+    </div>
+    <span class="red">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+    </span>
+    <span id="green">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+    </span>
+    <div>
+        <a href="https://www.hianime.to">Hianime</a>
+    </div>
+</body>
+</html>

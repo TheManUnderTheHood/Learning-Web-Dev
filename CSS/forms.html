@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Forms</title>
+</head>
+<body>
+    <center><h1>Application form</h1></center>
+    <form action="post">
+        <div>
+            <label for="name">Name: </label>
+            <div>
+                <input type="text" id="name" name="name" placeholder="Enter your name">
+            </div>
+        </div>
+        <div>
+            <label for="city">City: </label>
+            <div>
+                <input type="text" id="city" name="city" placeholder="Enter your city name">
+            </div>
+        </div>
+        <div>
+            <label for="pincode">Pincode: </label>
+            <div>
+                <input type="number" id="pincode" name="pincode" placeholder="Enter your pincode">
+            </div>
+        </div>
+    </form>
+    <br>
+   
+    <form action="post">
+        <div>
+            <label for="username">Username: </label>
+            <input type="text" id="username" name="username" placeholder="Enter your username">
+            <label for="password">Password: </label>
+            <input type="password" id="password" placeholder="Enter your password">
+        </div>
+        <div>
+            Gender:&nbsp&nbsp&nbsp&nbsp&nbsp 
+            <label for="male">Male </label>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="female">Female </label>
+            <input type="radio" id="female" name="gender" value="female">
+        </div>
+        <div>
+            <input type="checkbox" id="subscribe" name="subscribe" value="yes">
+            <label for="subscribe">Subscribe to newsletter</label>
+        </div>
+        <div>
+            <textarea name="comment" rows="4" cols="50">
+                Tell us about yourself...
+            </textarea>
+        </div>
+        <div>
+            <input type="submit">
+            <input type="reset">
+        </div>
+    </form>
+</body>
+</html>

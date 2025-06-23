@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Number Guessing</title>
+</head>
+<style>
+    body{
+        font-family: sans-serif;
+        font-size: 25px;
+        text-align: center;
+        margin: auto;
+        background: #111111;
+        color: white;
+    }
+    .name{
+        margin: 5%;
+        font-size: 50px;
+    }
+    main{
+        margin: 30px;
+        border-radius: 20px;
+        background-color: #535353;
+        padding: 5px;
+        padding-bottom: 50px;
+    }
+    .tit{
+        margin: 3%;
+        font-size: 45px;
+    }
+    #num{
+        height: 25px;
+        border: 3px solid rgb(38, 38, 38);
+    }
+    #but{
+        background-color: #111111;
+        color: white;
+        font-size: 15px;
+        margin: 10px;
+        border-radius: 10px;
+        padding: 10px 30px;
+        cursor: pointer;
+    }
+    .prev, .remain{
+        margin: 10px;
+    }
+</style>
+<body>
+    <div class="name">
+        Number Guessing Game !
+    </div>
+    <main>
+        <div>
+            <p>Try and guess a random number between 1 and 100.</p>
+            <p>You have 10 attempts to guess the right number.</p>
+        </div>
+        <div class="tit">
+            Guess a number 
+        </div>
+        <form>
+            <input type="text" id="num"><br>
+            <input type="submit" id="but" value="Submit guess"><br>
+        </form>
+        <div class="res"></div>
+        <div class="prev">
+            Previous Guesses : <span class="g"></span><br>
+        </div>
+        <div class="remain">
+            Guesses Remaining : <span class="r">10</span>
+        </div>
+    </main>
+</body>
+<script>
+    const form=document.querySelector('form')
+    const input = document.querySelector('#num');
+    const result = document.querySelector('.res');
+    const prevGuesses = document.querySelector('.g');
+    const guessesLeft = document.querySelector('.r');
+
+    let maxGuesses = 10;
+    let randomNum = Math.floor(Math.random() * 100) + 1;
+    let guesses = [];
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        let n=Number(input.value)
+        if(!n || n < 1 || n> 100){
+            result.innerHTML = 'Please enter a number between 1 and 100.'
+            return;
+        }
+        guesses.push(n);
+        maxGuesses--;
+        prevGuesses.innerHTML = guesses.join(', ');
+        guessesLeft.innerHTML = maxGuesses
+        
+        if(n === randomNum){
+            result.innerHTML = 'Congratulations! You got it right!';
+            endGame();
+        } 
+        else if(maxGuesses <= 0){
+            result.innerHTML = `Game Over! The number was ${randomNum}.`
+            endGame();
+        } 
+        else{
+            result.innerHTML = n < randomNum ? 'Too low! Try again.' : 'Too high! Try again.'
+        }
+
+        n = '';
+        input.focus();
+    });
+    function endGame() {
+        input.disabled = true;
+        form.querySelector('#but').disabled = true;
+    }
+
+</script>
+</html>

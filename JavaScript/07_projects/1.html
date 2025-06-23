@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changer</title>
+</head>
+<style>
+    body{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 50px;
+        text-align: center;
+        margin: auto;
+        background-color: #c7c7c7;
+    }
+    .b{
+        border: 4px solid black;
+        height: 150px;
+        width: 150px;
+        display: inline-block;
+        cursor: pointer;
+
+    }
+    #violet{
+        background: violet;
+    }
+    #indigo{
+        background: indigo;
+    }
+    #blue{
+        background: blue;
+    }
+    #green{
+        background: green;
+    }
+    #white{
+        background: white;
+    }
+</style>
+<body>
+    <div class="name">Color Switcher</div>
+    <div class="boxes">
+        <div class="b" id="violet"></div>
+        <div class="b" id="indigo"></div>
+        <div class="b" id="blue"></div>
+        <div class="b" id="green"></div>
+        <div class="b" id="white"></div>
+    </div>
+    <div class="description">Try clicking on one of the colors above to change the background color of page!</div>
+</body>
+<Script>
+    const buttons = document.querySelectorAll('.b');
+    const body = document.querySelector('body');
+    buttons.forEach(function (button){
+        button.addEventListener('mouseover', function (e){
+        body.style.backgroundColor = e.target.id;
+  });
+});
+</Script>
+</html>

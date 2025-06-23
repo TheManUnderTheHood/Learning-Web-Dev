@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random background</title>
+</head>
+<style>
+    body{
+        font-family: sans-serif;
+        font-size: 25px;
+        text-align: center;
+        margin: auto;
+        background: #111111;
+        color: white;
+    }
+    #start, #stop{
+        width: 75px;
+        font-size: 20px;
+        background-color: #ffc252;
+        border: 3px solid black;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <main>
+        <div class="desc">
+            <p>Start should change the Background color every second.</p>
+        </div>
+        <div class="but">
+            <button id="start">Start</button>
+            <button id="stop">Stop</button>
+        </div>
+    </main>
+</body>
+<script>
+    function color() {
+        let n= '#' + ((Math.random() * 0xfffff * 1000000).toString(16)).slice(0,6)
+        document.body.style.background=n
+    }
+    let intervalId
+    document.querySelector('#start').addEventListener('click', function(){
+        intervalId = setInterval(color, 1000)
+        
+    })
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearInterval(intervalId)
+    })
+</script>
+</html>
